@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "logfloww", "logfloww.csproj", "{3B1C1716-64AA-4832-9A05-413FD98E33C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogFlow.Tests", "..\LogFlow.Tests\LogFlow.Tests.csproj", "{3CDEECDA-06CB-9C37-F54F-14EA6C9EA406}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B1C1716-64AA-4832-9A05-413FD98E33C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1C1716-64AA-4832-9A05-413FD98E33C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1C1716-64AA-4832-9A05-413FD98E33C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1C1716-64AA-4832-9A05-413FD98E33C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDEECDA-06CB-9C37-F54F-14EA6C9EA406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDEECDA-06CB-9C37-F54F-14EA6C9EA406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDEECDA-06CB-9C37-F54F-14EA6C9EA406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDEECDA-06CB-9C37-F54F-14EA6C9EA406}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC3C36CA-4558-4F60-AB86-BCA9EBE9681D}
+	EndGlobalSection
+EndGlobal

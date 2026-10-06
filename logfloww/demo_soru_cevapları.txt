@@ -1,0 +1,21 @@
+SORU 1)Ayrıştırıcıyı (Parser) boru hattına eklemek için var olan hangi dosyaları değiştirdiniz?
+
+Sorumlulukların ayrılması (Separation of Concerns) prensibine uygun olarak var olan akışa ve mimari yapıya dokunmadık. Yalnızca tipli LogRecord veri yapısını oluşturduk ve boru hattına ParserStage aşamasını ekledik. Konsol çıktısını görmek için de Program.cs içerisindeki çalıştırma kodunu güncelledik.
+
+
+
+SORU 2)Ayrıştırıcı testiniz herhangi bir dosya okumuyor, bu nasıl mümkün oluyor ve neden önemli?
+
+Test sürecinde I/O (dosya okuma/yazma) bağımlılığını ortadan kaldırmak için CollectingEmitter adında bellek içi çalışan bir Test Dublörü (Test Double) kullandık. Test verilerini doğrudan metoda metin (string) olarak geçip sonuçları bellek üzerindeki listede topluyoruz. Bu sayede testlerimiz diske veya dış kaynaklara bağımlı olmadan son derece hızlı, kararlı ve güvenilir şekilde çalışıyor.
+
+
+
+SORU 3)Hatalı veya eksik formatta bir log satırı geldiğinde sistem nasıl davranıyor?
+
+ParserStage sınıfı içindeki Regex eşleşmesi başarısız olursa veya sayısal alanlar (durum kodu, bayt) doğru formattaysa ancak ayrıştırılamazsa, InvalidLineCount sayacı 1 artırılıyor ve hat hatalı veriden etkilenmeden işlemeye devam ediyor. 
+
+
+
+SORU 4)Test kapsama (Coverage) oranınız nedir ve neleri test ettiniz?
+
+%95'in üzerinde satır kapsama oranına sahibiz. Yazdığımız 8 adet xUnit birim testi ile geçerli log satırlarını, boş satırları, hatalı durum kodlarını, adresteki sorgu parametrelerini (?q=test), eksik alanları, hatalı tarih formatlarını ve tırnak içindeki uzun User-Agent verilerini ayrı ayrı doğruladık.

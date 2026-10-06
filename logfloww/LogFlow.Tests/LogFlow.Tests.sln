@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogFlow.Tests", "LogFlow.Tests.csproj", "{A5799B6A-DE57-449E-95F5-ACFBE2DA5517}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5799B6A-DE57-449E-95F5-ACFBE2DA5517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5799B6A-DE57-449E-95F5-ACFBE2DA5517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5799B6A-DE57-449E-95F5-ACFBE2DA5517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5799B6A-DE57-449E-95F5-ACFBE2DA5517}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA32419E-0699-4DDE-80CB-80018361F2B6}
+	EndGlobalSection
+EndGlobal
