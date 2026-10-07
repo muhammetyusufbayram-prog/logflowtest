@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.IO;
 using logfloww;
 
 class Program
@@ -8,18 +9,36 @@ class Program
         var parser = new ParserStage();
         var emitter = new CollectingEmitter<LogRecord>();
 
-        // Örnek log satırı
-        string sampleLine = @"127.0.0.1 - - [10/Oct/2000:13:55:36 -0700] ""GET /apache_pb.gif HTTP/1.0"" 200 2326 ""http://www.example.com/start.html"" ""Mozilla/4.08 [en] (Win98; I)""";
+        // Yönergeye göre dosya yolu belirlenir (varsayılan: data/access-small.log)
+        string filePath = args.Length > 0 ? args[0] : Path.Combine("data", "access-small.log");
 
-        parser.ProcessLine(sampleLine, emitter);
-
-        // Ekran çıktısı (ConsoleSink mantığı)
-        foreach (var record in emitter.Items)
+        // Göreli yol kontrolü (klasörler üst seviyedeyse bulabilmesi için)
+        if (!File.Exists(filePath) && File.Exists(Path.Combine("..", "..", "..", filePath)))
         {
-            Console.WriteLine($"[{record.Timestamp}] {record.ClientIp} -> {record.Method} {record.Path} ({record.Status} - {record.Bytes} bytes) - {record.UserAgent}");
+            filePath = Path.Combine("..", "..", "..", filePath);
         }
 
-        Console.WriteLine("----------------------------------------");
-        Console.WriteLine($"Toplam Hatalı Satır Sayısı: {parser.InvalidLineCount}");
+        if (File.Exists(filePath))
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (var line in lines)
+            {
+                parser.ProcessLine(line, emitter);
+            }
+
+            // ConsoleSink biçiminde yapılandırılmış kayıtları yazdırma
+            foreach (var record in emitter.Items)
+            {
+                Console.WriteLine($"[{record.Timestamp}] {record.ClientIp} -> {record.Method} {record.Path} ({record.Status} - {record.Bytes} bytes)");
+            }
+
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Toplam Hatalı Satır Sayısı: {parser.InvalidLineCount}");
+        }
+        else
+        {
+            Console.WriteLine($"Hata: '{filePath}' dosyası bulunamadı.");
+            Console.WriteLine("Lütfen proje dizinine 'data/access-small.log' dosyasını ekleyin.");
+        }
     }
 }
